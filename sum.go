@@ -30,7 +30,7 @@ func GetFloats(fileName string) ([]float64, error) {
 		}
 		numbers = append(numbers, number)
 	}
-	CloseFile(file)
+	defer CloseFile(file)
 	if scanner.Err() != nil {
 		return nil, scanner.Err()
 	}
